@@ -28,7 +28,7 @@ body {
     margin-right: 3px;
 }
 
-div {
+div, button {
     border-radius: 5px;
 }
 

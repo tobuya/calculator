@@ -11,27 +11,27 @@
 <body>
     <div id="container">
         <div id="top" class="color"><p class="display">0</p></div>
-        <div id="middle">
-            <div class="middle-btn left color">CLEAR</div>
-            <div class="middle-btn right color">DELETE</div>
+        <div id="middle" class="keys">
+            <button class="middle-btn left color" data-action="clear">CLEAR</button>
+            <button class="middle-btn right color" data-action="delete">DELETE</button>
         </div>
-        <div id="bottom">
-            <div class="item bottom-left bottom-top color seven">7</div>
-            <div class="item bottom-top color eight">8</div>
-            <div class="item bottom-top color nine">9</div>
-            <div class="item bottom-right bottom-top color divide">&#247;</div>
-            <div class="item bottom-left color four">4</div>
-            <div class="item color five">5</div>
-            <div class="item color six">6</div>
-            <div class="item bottom-right color multiple">&times;</div>
-            <div class="item bottom-left color one">1</div>
-            <div class="item color two">2</div>
-            <div class="item color three">3</div>
-            <div class="item bottom-right color minus">&minus;</div>
-            <div class="item bottom-left bottom-bottom color period">&period;</div>
-            <div class="item bottom-bottom color zero">0</div>
-            <div class="item bottom-bottom color equal">=</div>
-            <div class="item bottom-right bottom-bottom color plus">+</div>
+        <div id="bottom" class="keys">
+            <button class="item bottom-left bottom-top color">7</button>
+            <button class="item bottom-top color">8</button>
+            <button class="item bottom-top color">9</button>
+            <button class="item bottom-right bottom-top color operator" data-action="divide">&#247;</button>
+            <button class="item bottom-left color">4</button>
+            <button class="item color">5</button>
+            <button class="item color">6</button>
+            <button class="item bottom-right color operator" data-action="multiply">&times;</button>
+            <button class="item bottom-left color">1</button>
+            <button class="item color">2</button>
+            <button class="item color">3</button>
+            <button class="item bottom-right color operator" data-action="subtract">&minus;</button>
+            <button class="item bottom-left bottom-bottom color" data-action="decimal">&period;</button>
+            <button class="item bottom-bottom color">0</button>
+            <button class="item bottom-bottom color equal" data-action="calculate">=</button>
+            <button class="item bottom-right bottom-bottom color operator" data-action="add">+</button>
         </div>
     </div>
 </body>
