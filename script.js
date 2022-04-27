@@ -16,6 +16,7 @@ Array.from(keys).forEach(key => {
                 }else {
                     display.textContent = displayedNum + keyContent;
                 }
+                calculator.dataset.previousKeyType = "number";
             }
             if(
                 action === "add" ||
@@ -29,13 +30,21 @@ Array.from(keys).forEach(key => {
                 calculator.dataset.operator = action;
             }
             if(action === "decimal") {
-                display.textContent = displayedNum + ".";
+                if(!displayedNum.includes(".")) {
+                    display.textContent = displayedNum + ".";
+                }
+                if(previousKeyType === "operator"){
+                    display.textContent = "0.";
+                }
+                calculator.dataset.previousKeyType = "decimal";
             }
             if(action === "clear") {
                 console.log("clear key!");
+                calculator.dataset.previousKeyType = "clear";
             }
             if(action === "delete") {
                 console.log("delete key!");
+                calculator.dataset.previousKeyType = "delete";
             }
             if(action === "calculate") {
                 const firstValue = calculator.dataset.firstValue;
@@ -43,6 +52,7 @@ Array.from(keys).forEach(key => {
                 const secondValue = displayedNum;
 
                 display.textContent = calculate(firstValue, operator, secondValue);
+                calculator.dataset.previousKeyType = "calculate";
             }
         }
         Array.from(key.parentNode.children)
