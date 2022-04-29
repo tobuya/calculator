@@ -1,4 +1,4 @@
-#Calculator
+# Calculator
 
 Calculator app created by HTML, CSS and JS.
 
