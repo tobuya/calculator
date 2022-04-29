@@ -11,7 +11,7 @@ Array.from(keys).forEach(key => {
             const displayedNum = display.textContent;
             const previousKeyType = calculator.dataset.previousKeyType;
             if(!action) {
-                if(displayedNum === "0" || previousKeyType === "operator") {
+                if(displayedNum === "0" || previousKeyType === "operator" || operator === "calculate") {
                     display.textContent = keyContent;
                 }else {
                     display.textContent = displayedNum + keyContent;
@@ -28,10 +28,13 @@ Array.from(keys).forEach(key => {
                 const operator = calculator.dataset.operator;
                 const secondValue = displayedNum;
 
-                if(firstValue && operator && previousKeyType !== "operator"){
-                    const calcValue = calculate(firstValue, operator, secondValue);
-                    display.textContent = calcValue;
-                    calculator.dataset.firstValue = calcValue;
+                if(firstValue &&
+                     operator && 
+                     previousKeyType !== "operator" && 
+                     previousKeyType !== "calculate") {
+                         const calcValue = calculate(firstValue, operator, secondValue);
+                         display.textContent = calcValue;
+                         calculator.dataset.firstValue = calcValue;
                 }else {
                     calculator.dataset.firstValue = displayedNum;
                 }
@@ -44,13 +47,19 @@ Array.from(keys).forEach(key => {
                 if(!displayedNum.includes(".")) {
                     display.textContent = displayedNum + ".";
                 }
-                if(previousKeyType === "operator"){
+                if(previousKeyType === "operator" || previousKeyType === "calculate"){
                     display.textContent = "0.";
                 }
                 calculator.dataset.previousKeyType = "decimal";
             }
             if(action === "clear") {
-                console.log("clear key!");
+                display.textContent = 0;
+                if(display.textContent === "0") {
+                    calculator.dataset.firstValue = "";
+                    calculator.dataset.modValue = "";
+                    calculator.dataset.operator = "";
+                    calculator.dataset.previousKeyType = "";
+                }
                 calculator.dataset.previousKeyType = "clear";
             }
             if(action === "delete") {
