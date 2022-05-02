@@ -80,3 +80,7 @@ div, button {
 .color {
     background-color: aliceblue;
 }
+
+.operator, .middle-btn {
+    background-color: antiquewhite;
+}
