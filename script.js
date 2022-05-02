@@ -78,7 +78,11 @@ Array.from(keys).forEach(key => {
                     firstValue = displayedNum;
                     secondValue = calculator.dataset.modValue;
                     }
-                 display.textContent = calculate(firstValue, operator, secondValue);
+                 if(displayedNum.includes(".")){
+                     display.textContent = calculate(firstValue, operator, secondValue).toFixed(3);
+                 } else {
+                     display.textContent = calculate(firstValue, operator, secondValue);
+                 }  
                 }
                 calculator.dataset.modValue = secondValue;
                 calculator.dataset.previousKeyType = "calculate";
