@@ -31,7 +31,8 @@ Array.from(keys).forEach(key => {
                 if(firstValue &&
                      operator && 
                      previousKeyType !== "operator" && 
-                     previousKeyType !== "calculate") {
+                     previousKeyType !== "calculate" &&
+                     previousKeyType !== "delete") {
                          const calcValue = calculate(firstValue, operator, secondValue);
                          display.textContent = calcValue;
                          calculator.dataset.firstValue = calcValue;
@@ -66,6 +67,7 @@ Array.from(keys).forEach(key => {
                 let displayValue = Array.from(displayedNum);
                 let returnValue = displayValue.pop();
                 display.textContent = displayValue.join("");
+
                 calculator.dataset.previousKeyType = "delete";
             }
             if(action === "calculate") {
