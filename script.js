@@ -40,7 +40,7 @@ Array.from(keys).forEach(key => {
                     calculator.dataset.firstValue = displayedNum;
                 }
 
-                key.classList.add("is-depressed");
+                key.classList.add("pressed");
                 calculator.dataset.previousKeyType = "operator";
                 calculator.dataset.operator = action;
             }
@@ -91,7 +91,7 @@ Array.from(keys).forEach(key => {
             }
         }
         Array.from(key.parentNode.children)
-            .forEach(k => k.classList.remove("is-depressed"));
+            .forEach(k => k.classList.remove("pressed"));
     });
 });
 
